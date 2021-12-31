@@ -1,0 +1,1 @@
+print("Installation is complete.")

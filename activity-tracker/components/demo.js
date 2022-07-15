@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
     return (
       <View style={styles.container}>
-        <Text>demo sayfasi</Text>
+        <Text>demo sayfamnsi</Text>
        
       </View>
     );

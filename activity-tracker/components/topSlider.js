@@ -1,52 +1,43 @@
-
-import {React, Component} from 'react'
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Slideshow from 'react-native-image-slider-show';
+import Swiper from 'react-native-web-swiper';
 
-export default class TopSlider extends Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        position: 1,
-        interval: null,
-        dataSource: [
-          {
-            title: 'Title 1',
-            caption: 'Caption 1',
-            url: 'https://i.ytimg.com/vi/VuBgZNjYhWU/maxresdefault.jpg',
-          }, {
-            title: 'Title 2',
-            caption: 'Caption 2',
-            url: 'https://medyascope.tv/wp-content/uploads/2021/02/ko9JKjQiS0GRLq_PB2I__g-750x425.jpg',
-          }
-        ],
-      };
-    }
-  
-    UNSAFE_componentWillMount() {
-        this.setState({
-        interval: setInterval(() => {
-          this.setState({
-            position: this.state.position === this.state.dataSource.length ? 0 : this.state.position + 1
-          });
-        }, 5000)
-      });
-    }
-  
-    UNSAFE_componentWillMount() {
-      clearInterval(this.state.interval);
-    }
-  
-    render() {
-      return (
-          <View style={{maxHeight:100}}> 
-      <Slideshow 
-          dataSource={this.state.dataSource}
-          position={this.state.position}
-          onPositionChanged={position => this.setState({ position })} />
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  slideContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  slide1: {
+    backgroundColor: 'rgba(20,20,200,0.3)',
+  },
+  slide2: {
+    backgroundColor: 'rgba(20,200,20,0.3)',
+  },
+  slide3: {
+    backgroundColor: 'rgba(200,20,20,0.3)',
+  },
+});
 
-</View>
-      );
-    }
+export default class Screen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Swiper>
+          <View style={[styles.slideContainer,styles.slide1]}>
+            <Text>Slide 1</Text>
+          </View>
+          <View style={[styles.slideContainer,styles.slide2]}>
+            <Text>Slide 2</Text>
+          </View>
+          <View style={[styles.slideContainer,styles.slide3]}>
+            <Text>Slide 3</Text>
+          </View>
+        </Swiper>
+      </View>
+    );
   }
+}

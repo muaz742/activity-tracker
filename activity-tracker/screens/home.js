@@ -17,7 +17,7 @@ export default function Home() {
 </View>
 
 
-<View style={styles.topSlide}> 
+<View> 
 <TopSlider />
 </View>
 
@@ -27,10 +27,7 @@ export default function Home() {
   }
   
   const styles = StyleSheet.create({
-    topSlide:{
-position:'absolute', 
-top:130
-    },
+ 
     accountRegister: {
 width:'90%',
 position:'absolute',

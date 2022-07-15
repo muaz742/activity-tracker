@@ -1,1 +1,0 @@
-print("Installation is complete.")
